@@ -1,360 +1,260 @@
 /* =========================================================
-   BJ Share — Tema "Forest Gold"
-   Autor: Füller
-   Notas:
-  - Paleta puxada do GIF: fundo verde-escuro com glow dourado
+   BJ-Forest Theme
+   - Paleta: teal profundo + acentos dourados
+   - Cabeçalho: GIF do BJ-Share
+   - Mantém a mesma estrutura de seletores do storm para compatibilidade
    ========================================================= */
 
+/* ---------- 0) Variáveis de tema (cores/acentos) ---------- */
 :root{
-  /* PALETA */
-  --bg-0: #070c0c;            /* mais escuro */
+  --bg-0: #030606;
   --bg-1: #0b1414;
-  --bg-2: #0f1c1c;            /* cards / linhas ímpares */
-  --bg-3: #122424;            /* cabeçalhos suaves */
-  --ink:  #dfe6e3;            /* texto principal */
-  --muted:#a6b2ae;            /* texto secundário */
+  --bg-2: #0f1c1c;
+  --bg-3: #122424;
+  --ink-1:#cbd6d1;
+  --ink-2:#e9efec;
 
-  /* ACENTOS (dourados) */
-  --gold-1:#d4b66a;           /* primário */
-  --gold-2:#e2c37a;           /* hover */
-  --gold-3:#f0d894;           /* brilho forte */
-
-  /* ACENTOS (verde/teal) */
-  --teal-1:#1a3737;
-  --teal-2:#1f4242;
-  --teal-3:#255050;
-
-  /* BORDAS / SOMBRAS */
-  --line-0:#000;
+  --teal-1:#173131;
+  --teal-2:#1c3f3f;
+  --teal-3:#204a4a;
   --line-1:#0b1010;
-  --line-2:#233131;
-  --glow: 0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
 
-  /* IMG / BACKGROUNDS */
-  --header-bg: url("https://i.bj-share.info/0a09a1e38f1546788e30ed5d55da4b4c.gif"); /* <-- troque aqui */
-  --grain: radial-gradient(1200px 400px at 50% -200px, rgba(240,216,148,.07), transparent 60%),
-           radial-gradient(900px 320px at 50% 0, rgba(26,55,55,.35), transparent 55%),
-           linear-gradient(180deg, rgba(7,12,12,1), rgba(11,20,20,.98) 40%, rgba(15,28,28,.98) 70%, #0b1414 100%);
+  --gold-1:#d4b66a;
+  --gold-2:#e2c37a;
+  --gold-3:#f0d894;
+
+  --shadow-1: 0 1px 4px rgba(0,0,0,.8);
+  --glow-gold: 0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
 }
 
-/* GERAL ------------------------------------------------- */
+/* ---------- 1) Base tipografia e fundo ---------- */
 html,body{
-  background: var(--grain), var(--bg-0) !important;
-  color: var(--ink);
-  font-size: 11.6px;
-  min-width: 950px;
+  font-size:11.6px;
+  color:#dfdfdf;
+  min-width:950px;
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(33,66,66,.25), transparent 60%),
+    linear-gradient(180deg, var(--bg-2), var(--bg-1) 40%, var(--bg-0) 100%),
+    url(https://i.bj-share.info/ec01898d04940834f4312bb56df3f8c6.png) repeat 0 0 !important;
 }
-img{ border-radius:10px; }
-a{ color:#c9d4cf; text-decoration:none; }
-a:hover{ color:var(--gold-2); text-decoration:underline; }
 
-h1,h2,h3,h4{ margin:5px 0; font-weight:700; }
-h2{ text-align:center; font-size:12pt; color:var(--gold-2); }
-h4{ font-size:8pt; color:var(--muted); }
-p{ margin:10px 5px; }
-li{ margin:9px 11px; }
+a{ color:#cdd7d3; text-decoration:none; border:0 }
+a:hover{ color:#ffffff; text-decoration:underline }
 
-/* FORM / CAMPOS ---------------------------------------- */
-input, textarea{
+h1,h2,h3,h4{ margin:5px 0; font-weight:700 }
+h2{ text-align:center; font-size:12pt; color:#fff }
+
+/* inputs */
+input,textarea{
   color:#fff;
-  border:1px solid var(--line-2);
-  background: linear-gradient(90deg, var(--teal-1) 0%, var(--teal-2) 100%);
+  border:1px solid #1b2a2a;
+  background:linear-gradient(90deg, #0c0c0c 46.92%, #1f2b2b 111.05%);
 }
-input:focus, textarea:focus{
-  outline:1px solid var(--gold-1);
-  box-shadow:0 0 0 2px rgba(212,182,106,.18);
-}
+input:focus,textarea:focus{ outline:none; border-color:var(--gold-2); box-shadow:0 0 0 2px rgba(212,182,106,.18) }
 
-/* HEADER / HERO ---------------------------------------- */
+/* ---------- 2) Header / Logo ---------- */
 #header{
   width:100%;
   padding:0;
-  background: var(--header-bg) no-repeat top center;
-  background-size: cover;
-  background-color:#000; /* fallback */
+  background:
+    url("https://i.bj-share.info/0a09a1e38f1546788e30ed5d55da4b4c.gif") no-repeat top center/cover,
+    #000;
 }
-#logo{
-  width:100%;
-  height:267px;
-  margin:0 auto;
-}
-#logo a{ display:block; width:320px; height:150px; border:none; }
+#logo{ width:100%; height:267px; margin:0 auto }
+#logo a{ display:block; width:320px; height:150px; border:none }
 
-/* WRAPPER / CONTENT ------------------------------------ */
-#wrapper{ width:100%; margin:0 auto; }
-#content{
-  margin:auto;
-  width:100%;
-  overflow:hidden;
-  position:relative;
-  top:60px;
+/* ---------- 3) Wrapper / Content / Footer ---------- */
+#wrapper{ width:100%; margin:0 auto }
+#content{ margin:auto; width:100%; overflow:hidden; position:relative; top:60px }
+
+#footer{
+  margin-top:140px; width:100%; text-align:center; padding:1em 0; color:#fff;
+  background:linear-gradient(115deg, var(--bg-2) 60%, var(--teal-2) 100%);
+  border-top:2px solid var(--line-1);
+  box-shadow: var(--shadow-1);
 }
 
-/* BARRA SUPERIOR (userinfo) ---------------------------- */
+/* ---------- 4) Barra do usuário ---------- */
 #userinfo{
-  background: rgba(7,12,12,.8);
-  backdrop-filter: blur(2px);
+  width:82%; min-width:850px; text-align:center; font-size:8pt;
+  position:relative; top:35px; margin:0 auto;
   color:#cbd6d1;
-  width:82%;
-  text-align:center;
-  font-size:8pt;
-  padding:6px 0;
-  z-index:10;
-  min-width:850px;
-  position:relative;
-  top:35px;
-  margin-left:130px;
+  background:linear-gradient(0deg, rgba(7,12,12,.85), rgba(10,18,18,.85)),
+             url(https://i.bj-share.info/ec01898d04940834f4312bb56df3f8c6.png) repeat 0 0 !important;
   border:1px solid var(--line-1);
   border-radius:8px;
-  box-shadow: var(--glow);
+  box-shadow: var(--glow-gold);
 }
-#userinfo a{ color:#e9eee9; }
-#userinfo a:hover{ color:var(--gold-2); }
+#userinfo a{ color:var(--ink-2) }
+#userinfo a:hover{ color:var(--gold-2) }
+#userinfo ul{ display:inline; margin:0 .8%; padding:4px }
+#userinfo ul li{ display:inline; margin:0 .1em; line-height:20px; vertical-align:middle; padding:10px }
 
-/* MENU -------------------------------------------------- */
+/* ---------- 5) Menu principal (mantém estrutura #menu / #menudrop) ---------- */
 #menu{
-  position:absolute;
-  left:100px; right:100px; top:268px;
-  text-align:center;
-  font-size:10pt; z-index:1001; min-width:850px;
-  border-radius:10px;
+  position:absolute; left:100px; right:100px; top:268px; min-width:850px; z-index:1001;
+  text-align:center; font-size:10pt;
+  border-radius:14px;
   border:1px solid var(--line-1);
-  background: linear-gradient(90deg, rgba(18,36,36,.75) 0%, rgba(31,66,66,.75) 100%);
-  box-shadow: var(--glow);
+  background:linear-gradient(90deg, rgba(18,36,36,.78), rgba(31,66,66,.78));
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.5) inset;
+  padding:6px 10px;
 }
-#menudrop ul{ list-style:none; margin:0; padding:0; float:left; position:relative; }
-#menudrop ul li{ position:relative; float:left; margin:0; padding:0; width:145px; }
-#menudrop ul a{
-  display:block; line-height:32px; padding:0 15px;
-  color:#cdd7d4; font-weight:700; font-size:12px;
-}
-#menudrop ul li:hover{ background: rgba(212,182,106,.12); }
-#menudrop ul ul{
-  display:none; position:absolute; top:100%; left:0;
-  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
-  border:1px solid var(--gold-1); border-radius:8px;
-}
-#menudrop ul li:hover>ul{ display:block; }
-#menudrop ul ul a{ padding:10px 15px; }
-#menudrop ul ul li{ float:none; width:145px; }
 
-/* BUSCA ------------------------------------------------- */
+/* estrutura do dropdown */
+#menudrop ul{ list-style:none; margin:0; padding:0; display:flex; align-items:center; justify-content:center; gap:14px }
+#menudrop ul li{ position:relative }
+#menudrop ul > li > a{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:36px; padding:0 20px; border-radius:999px;
+  font-weight:700; font-size:12px; letter-spacing:.02em;
+  color:#e9efec; text-decoration:none;
+  text-shadow:0 1px 0 rgba(0,0,0,.35);
+  background:
+    linear-gradient(180deg, rgba(28,58,58,.48), rgba(14,28,28,.40)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.08), transparent 60%);
+  border:1px solid rgba(212,182,106,.28);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), 0 6px 16px rgba(0,0,0,.45);
+  transition:transform .15s, box-shadow .2s, border-color .2s, background .2s, color .2s;
+}
+#menudrop ul > li > a:hover{
+  border-color:var(--gold-2); color:#fff;
+  background:
+    linear-gradient(180deg, rgba(37,80,80,.60), rgba(18,36,36,.52)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.14), transparent 65%);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.20), 0 10px 28px rgba(0,0,0,.55), 0 0 0 2px rgba(212,182,106,.18);
+  transform:translateY(-1px);
+}
+
+/* submenu */
+#menudrop ul ul{
+  display:none; position:absolute; top:100%; left:0; z-index:1002; min-width:180px;
+  padding:10px; border-radius:12px; gap:8px;
+  background:linear-gradient(180deg, rgba(18,36,36,.95), rgba(12,24,24,.96));
+  border:1px solid rgba(212,182,106,.28);
+  box-shadow:0 12px 30px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.5) inset;
+  text-align:left;
+}
+#menudrop ul li:hover>ul{ display:flex; flex-direction:column }
+#menudrop ul ul a{
+  height:32px; padding:0 14px; border-radius:10px; font-weight:600; color:#e9efec; text-decoration:none;
+  background:linear-gradient(180deg, rgba(28,58,58,.45), rgba(14,28,28,.38));
+  border:1px solid rgba(212,182,106,.22);
+}
+#menudrop ul ul a:hover{
+  border-color:var(--gold-2);
+  background:linear-gradient(180deg, rgba(37,80,80,.56), rgba(18,36,36,.48));
+}
+
+/* ---------- 6) Barra de buscas ---------- */
 #searchbars{
-  position:absolute; top:240px; width:100%;
-  text-align:center; padding:4px 0; min-width:850px;
+  position:absolute; top:240px; width:100%; min-width:850px; text-align:center; padding:4px 0;
 }
 #searchbars input{
-  padding:6px 20px; font-size:.9em; color:#d7e1dc;
-  border:1px solid var(--teal-3);
-  background: linear-gradient(5deg, var(--teal-1), var(--teal-2));
-  border-image: none;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.3), 0 0 0 1px rgba(212,182,106,.08);
-}
-#searchbars input:focus{
-  border-color: var(--gold-1);
-  box-shadow: 0 0 0 2px rgba(212,182,106,.25);
+  padding:5px 20px; font-size:.9em; color:#cbd6d1;
+  background:linear-gradient(5deg, #0c0c0c 46.92%, #1f2b2b 111.05%);
+  border:1px solid var(--line-1);
+  border-image-slice:1;
+  border-image-source: linear-gradient(90deg, var(--gold-1), var(--teal-2));
 }
 
-/* ALERTS / INFO BAR ------------------------------------ */
+/* ---------- 7) Avisos / Alertas ---------- */
 #alerts{
-  position:relative; margin-top:32px; margin-bottom:-60px;
-  padding:10px 0; width:100%; min-width:850px;
-  background: rgba(7,12,12,.8);
-  border-top:1px solid var(--line-1);
-  border-bottom:1px solid var(--line-1);
+  position:relative; margin-top:32px; margin-bottom:-60px; padding:10px 0; width:100%; min-width:850px;
+  background:linear-gradient(0deg, rgba(10,18,18,.88), rgba(8,16,16,.88)),
+             url(https://i.bj-share.info/ec01898d04940834f4312bb56df3f8c6.png) repeat 0 0;
 }
 .alertbar{
   text-align:center; color:#e6e6e6; font-weight:700; font-size:.99em;
-  width:600px; margin:8px auto; padding:10px;
-  background: linear-gradient(0deg, var(--bg-2) 0%, var(--bg-3) 100%);
-  border:1px solid var(--gold-1);
-  border-radius:24px;
-  box-shadow: var(--glow);
+  max-width:600px; margin:8px auto; padding:10px;
+  background:linear-gradient(0deg, var(--bg-2) 0%, var(--bg-3) 100%);
+  border:1px solid var(--gold-1); border-radius:24px;
+  box-shadow: var(--glow-gold);
 }
-.alertbar a{ color:var(--gold-2); text-decoration:underline; }
-.alertbar a:hover{ color:var(--gold-3); text-decoration:none; }
+.alertbar a{ color:var(--gold-2); text-decoration:underline }
+.alertbar a:hover{ color:var(--gold-3); text-decoration:none }
 
-/* COLUNAS / BOXES -------------------------------------- */
-.thin,.widethin{ max-width:1152px; margin:0 auto; }
+/* ---------- 8) Caixas / Boxes ---------- */
 .box{
-  font-size:8.7pt;
-  border-radius:12px 12px 20px 20px;
-  background: linear-gradient(115deg, var(--bg-2) 60%, var(--teal-2) 100%);
-  border:1px solid var(--line-0);
+  font-size:8.69pt;
+  border-radius:10px 10px 20px 20px;
+  background:linear-gradient(115deg, var(--bg-2) 62%, var(--teal-2) 100%);
+  border:1px solid #000;
   margin-bottom:20px;
-  box-shadow: 0 1px 4px #000, var(--glow);
+  box-shadow: var(--shadow-1);
 }
 .head{
-  padding:8px;
-  color:var(--gold-2);
-  border-radius:10px 10px 0 0;
+  padding:8px; border-radius:10px 10px 0 0;
+  color:#e9efec;
   border:1px solid var(--gold-1);
-  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
-  box-shadow: 0 1px 4px #000, inset 0 -1px 0 rgba(240,216,148,.15);
+  background:linear-gradient(94deg, var(--teal-1), var(--teal-2));
+  box-shadow: var(--shadow-1);
 }
-.body{ padding:10px; }
+.body{ padding:10px }
 
-/* TABELAS ---------------------------------------------- */
-table{
-  width:100%; border-collapse:collapse;
-  border:1px solid rgba(212,182,106,.25);
-  box-shadow: 0 1px 4px #000;
-}
-tr{ border:1px solid #000; }
-tr.rowa{ background: var(--bg-2); }
-td,th{ padding:6px; text-align:left; }
-#torrent_details tr td{ background-color: var(--bg-2); }
-.colhead{
-  background: linear-gradient(180deg, var(--bg-3), var(--teal-1));
-  font-weight:700; color:#fff; border-bottom:2px solid #000;
-  text-shadow:0 1px 0 rgba(0,0,0,.4);
-}
-.colhead_dark{
-  background-color: var(--teal-1);
-  color:#eaeaea; border-bottom:1px solid #000;
-  box-shadow: 0 1px 4px #000;
-}
-.colhead a, .colhead_dark a{ color:var(--gold-2); }
-
-/* LISTAS DE TORRENTS ----------------------------------- */
-.torrent_table tr.group,
-tr.group_torrent,
-tr.torrent{
-  background: linear-gradient(111deg, var(--bg-3) 65.9%, var(--teal-1) 101.82%);
-}
-.torrent_table div.tags{ font-weight:400; }
-.torrent_table tr .center{ vertical-align:middle; text-align:center; }
-
-/* QUOTES / POSTS --------------------------------------- */
-tbody{ max-width:690px; background: #0a0f0f; }
-blockquote{
-  margin:10px; padding:10px;
-  border:1px dashed rgba(212,182,106,.45);
-  background: rgba(26,55,55,.25);
-}
-
-/* ERROS / SUCESSO -------------------------------------- */
-.error_message{
-  border:1px solid #7a2b2b; padding:6px 0; text-align:center;
-  background: linear-gradient(180deg, #5a1f1f, #3a1414);
-  color:#fff; font-weight:700;
-}
-.save_message{
-  border:1px solid rgba(212,182,106,.6); padding:6px 0; text-align:center;
-  background: linear-gradient(180deg, #f7e889, #d4b66a);
-  color:#3b2c0c; font-weight:700;
-}
-
-/* BOTÕES ----------------------------------------------- */
+/* ---------- 9) Botões ---------- */
 button, input[type=button], input[type=submit]{
-  min-width:30px; margin-bottom:0; cursor:pointer;
-  color:#fff; letter-spacing:.075em; text-align:center;
-  padding:8px 18px; border-radius:80px;
-  border:1px solid var(--gold-1);
-  background: linear-gradient(180deg, rgba(31,66,66,.9), rgba(18,36,36,.9));
-  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), var(--glow);
-  text-shadow:0 1px 0 rgba(0,0,0,.25);
+  min-width:30px;
+  padding:6px 18px; margin-bottom:0; letter-spacing:.075em; cursor:pointer;
+  color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.25);
+  border:1px solid var(--gold-1); border-radius:80px;
+  background:linear-gradient(180deg, rgba(31,66,66,.9), rgba(18,36,36,.9));
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), var(--glow-gold);
 }
 button:hover, input[type=button]:hover, input[type=submit]:hover{
-  background: linear-gradient(180deg, rgba(37,80,80,.95), rgba(22,46,46,.95));
-  border-color: var(--gold-2);
+  border-color:var(--gold-2);
+  background:linear-gradient(180deg, rgba(37,80,80,.95), rgba(22,46,46,.95));
   box-shadow: inset 0 -1px 0 rgba(240,216,148,.2), 0 0 0 2px rgba(212,182,106,.18);
 }
 button:disabled, input[type=button]:disabled, input[type=submit]:disabled{
-  background: #0b1010; color:#888; cursor:default; border-color:#1a1a1a;
+  background:#000; color:#777; cursor:default; border-color:#222;
 }
 
-/* RATING COLORS (mantidos) ----------------------------- */
-.r01,.r02{ color:#ff1300; } .r03{ color:#ff2600; } .r04{ color:#ff4c00; }
-.r05,.r06{ color:#ff5e00; } .r07{ color:#ff7100; } .r08{ color:#ff9700; }
-.r09{ color:#ffaa00; } .r10{ color:#74c42e; } .r20,.r50,.r99{ color:#418b00; }
+/* ---------- 10) Tabelas (inclusive torrent_table) ---------- */
+table{ width:100%; border-collapse:collapse; border:1px solid rgba(212,182,106,.20); box-shadow: var(--shadow-1) }
+tr{ border:1px solid #000 }
+tr.rowa{ background-color:#162424 } /* zebradas discretas */
+td,th{ padding:6px; text-align:left }
 
-/* ROLAGEM PARA TOPO / FINAL ---------------------------- */
-#irtopo, #irfinal{
-  position:fixed; right:10px; width:40px; height:40px;
-  background-color: var(--gold-1); border-radius:10px; text-indent:-9999px;
-  box-shadow: var(--glow);
+.colhead{
+  background:linear-gradient(180deg, var(--bg-3), var(--teal-1));
+  font-weight:700; color:#fff; border-bottom:2px solid #000;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
 }
-#irtopo{ bottom:60px; display:none; }
-#irfinal{ bottom:10px; display:block; }
-#irtopo:hover, #irfinal:hover{ background-color: var(--gold-2); }
+.colhead a{ color:var(--gold-2) }
 
-/* TOOLTIP ---------------------------------------------- */
+.torrent_table tr.group,
+tr.group_torrent, tr.torrent{
+  background:linear-gradient(111deg, #131f1f 65.9%, #1f2b2b 101.82%);
+}
+
+/* ---------- 11) Tooltips / InfoBox (mantendo seletores do storm) ---------- */
+a.BJinfoBox{ position:relative; display:inline }
 a.BJinfoBox span{
-  position:absolute; min-width:185px; color:#eee;
-  background: rgba(18,36,36,.95);
-  line-height:15px; visibility:hidden; border-radius:6px;
-  text-decoration:none; padding:7px 10px; opacity:0; bottom:0;
-  transition: opacity .4s, bottom .4s;
-  border:1px solid var(--gold-1); box-shadow: var(--glow);
+  position:absolute; min-width:185px; line-height:15px; padding:7px 10px;
+  color:#eee; background:rgba(15,28,28,.95); border-radius:6px;
+  visibility:hidden; opacity:0; bottom:0; box-shadow: var(--shadow-1);
+  transition:opacity .3s, bottom .3s;
 }
-a:hover.BJinfoBox span{ visibility:visible; bottom:20px; left:40%; margin-left:-76px; opacity:.95; }
+a:hover.BJinfoBox span{ visibility:visible; opacity:.95; bottom:20px; left:40%; margin-left:-76px; z-index:3 }
 
-/* CHAT / NOTY ------------------------------------------ */
-#txtChat, input[name="chatbarText"]{
-  background: linear-gradient(90deg, #343434 47%, #444 111%);
-  color:#fff;
-}
-#chatForm, form[name="chatForm"]{
-  background: linear-gradient(115deg, var(--bg-2) 62%, var(--teal-1) 98%);
-}
-ul#noty_bottomRight_layout_container li[style*="background"]{
-  background: linear-gradient(90deg, var(--bg-2), var(--teal-1)) !important;
-  border:1px solid var(--gold-1) !important; color:#fff !important; width:300px !important;
-}
-div.noty_buttons[style*="background-color: rgb(255, 255, 255)"]{
-  background-color:#555 !important; border-top:1px solid #666 !important; padding:5px; text-align:center !important;
+/* ---------- 12) Pequenos ajustes visuais ---------- */
+img{ border-radius:10px }
+.thin{ max-width:1152px; margin:0 auto }
+.widethin{ max-width:1152px !important; margin:0 auto }
+.center{ text-align:center }
+.right{ text-align:right }
+.pad{ padding:1em }
+
+/* ---------- 13) Acessibilidade de foco ---------- */
+#menudrop a:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(212,182,106,.35);
 }
 
-/* DIVERSOS --------------------------------------------- */
-.center{ text-align:center; }
-.right{ text-align:right; }
-.min_padding{ padding:0; margin:0; }
-.pad{ padding:1em; }
-.vertical_space{ margin-bottom:10px; }
-.hidden{ display:none; }
-.tags a{ color:#98aaa6; } .tags a:hover{ color:#e7eee9; text-decoration:none; }
-
-/* TWEAKS RESPONSIVOS SIMPLES --------------------------- */
-@media (max-width: 1200px){
-  #userinfo{ width:90%; margin-left:5%; }
-  #menu{ left:5%; right:5%; }
-}
-
-/* ============================
-   Botões do menu - estilo moderno
-   ============================ */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li a {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    color: #f5f5f5;
-    background: linear-gradient(145deg, #1a1f24, #0f1215);
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.7),
-                -2px -2px 6px rgba(255,255,255,0.05);
-    transition: all 0.25s ease-in-out;
-}
-
-nav ul li a:hover {
-    background: linear-gradient(145deg, #2a3036, #181b1f);
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.8),
-                -3px -3px 8px rgba(255,255,255,0.08);
-    transform: translateY(-2px);
-    color: #FFD700; /* dourado no hover */
-}
-
-nav ul li a:active {
-    transform: scale(0.96);
+/* ---------- 14) Responsivo leve do menu ---------- */
+@media (max-width: 980px){
+  #menudrop ul{ flex-wrap:wrap; gap:10px }
+  #menudrop ul>li>a{ height:34px; padding:0 16px; font-size:11px }
 }
