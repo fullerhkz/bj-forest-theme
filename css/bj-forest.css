@@ -2,7 +2,6 @@
    BJ-Forest Theme
    - Paleta: teal profundo + acentos dourados
    - Cabeçalho: GIF do BJ-Share
-   - Mantém a mesma estrutura de seletores do storm para compatibilidade
    ========================================================= */
 
 /* ---------- 0) Variáveis de tema (cores/acentos) ---------- */
@@ -258,3 +257,4 @@ img{ border-radius:10px }
   #menudrop ul{ flex-wrap:wrap; gap:10px }
   #menudrop ul>li>a{ height:34px; padding:0 16px; font-size:11px }
 }
+
