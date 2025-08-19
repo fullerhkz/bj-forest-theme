@@ -1,71 +1,64 @@
 /* =========================================================
-   BJ Share — Forest Gold (WRAPPER COMPLETO)
-   - Carrega o CSS nativo do site primeiro (via @import)
-   - Aplica só os nossos ajustes depois, de forma segura
-   - Use esta URL no campo de CSS do site:
-   - https://fullerhkz.github.io/bj-forest-theme/css/bj-forest-wrapper.css?v=1
+   BJ Share — Forest Gold (WRAPPER COMPATÍVEL)
+   - Mantém o layout original (importa CSS nativos do site)
+   - Aplica o tema BJ-Forest apenas por cima (overrides seguros)
    ========================================================= */
 
-/* ========== 1) CSS NATIVOS DO SITE (copiados do Network) ========== */
+/* ========== 1) CSS NATIVOS DO SITE (importe antes de tudo) ========== */
+/* Os três abaixo foram confirmados por você no DevTools */
 @import url("https://bj-share.info/static/styles/global.css?v=1748303515");
 @import url("https://bj-share.info/static/styles/fa-pro.css?v=1628110657");
 @import url("https://bj-share.info/static/styles/chosen.css");
 
-@import url("https://bj-share.info/static/styles/dropzone.css?v=1599511097");
-@import url("https://bj-share.info/static/styles/jquery.passwordRequirements.css?v=1685050682");
-
-/* style.css apareceu várias vezes com versões diferentes — importo todas
-   (o navegador ignora duplicata sem custo relevante) */
-@import url("https://bj-share.info/static/styles/style.css?v=1599511097");
-@import url("https://bj-share.info/static/styles/style.css?v=1753570876");
-
-/* sedditor.css (editor) */
-@import url("https://bj-share.info/static/styles/sedditor.css?v=1742607196");
-
-/* Fancybox (3 arquivos) */
-@import url("https://bj-share.info/static/styles/jquery.fancybox.css?v=1619216025");
-@import url("https://bj-share.info/static/styles/jquery.fancybox-buttons.css?v=1599349412");
-@import url("https://bj-share.info/static/styles/jquery.fancybox-thumbs.css?v=1599349412");
-
-/* main.css “grandão” (224 KB no seu print)
-   Se esta URL não bater, copie o Request URL EXATO do DevTools e substitua. */
-@import url("https://bj-share.info/static/styles/main.css?attr=aHR0cHM6Ly9hai1zaGFyZS5pbmZvL2ZGV4L...");
-
-/* (opcional) Google Fonts visto no Network — apenas se realmente precisar
-@import url("https://fonts.googleapis.com/css?family=Roboto:500,100,700,400,300");
+/* (Opcional, se existirem no seu tema — não são obrigatórios)
+   Se quiser, adicione depois os demais CSS que aparecerem no DevTools (Network → CSS),
+   cada um com o Request URL completo. Exemplo:
+   @import url("https://bj-share.info/static/styles/style.css?v=1599511097");
+   @import url("https://bj-share.info/static/styles/sedditor.css?v=1742607196");
+   @import url("https://bj-share.info/static/styles/dropzone.css?v=1599511097");
+   @import url("https://bj-share.info/static/styles/jquery.passwordRequirements.css?v=1685050682");
+   @import url("https://bj-share.info/static/styles/jquery.fancybox.css?v=1619216025");
+   @import url("https://bj-share.info/static/styles/jquery.fancybox-buttons.css?v=1599349412");
+   @import url("https://bj-share.info/static/styles/jquery.fancybox-thumbs.css?v=1599349412");
 */
 
-/* ========== 2) NOSSOS AJUSTES (alvos específicos, sem mexer no resto) ========== */
+/* ========== 2) VARIÁVEIS DO TEMA (cores e efeitos) ========== */
 :root{
   --bg-2:#0f1c1c;
   --bg-3:#122424;
+  --teal-1:#1a3737;
+  --teal-2:#1f4242;
+
   --gold-1:#d4b66a;
   --gold-2:#e2c37a;
   --gold-3:#f0d894;
-  --teal-1:#1a3737;
-  --teal-2:#1f4242;
+
   --line-1:#0b1010;
   --glow:0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
 }
 
-/* HEADER com seu GIF — não muda o fluxo, só o fundo */
+/* ========== 3) HEADER com o GIF (apenas fundo, não mexe no fluxo) ========== */
 #header{
-  background: url("https://fullerhkz.github.io/bj-forest-theme/img/BJ.gif") no-repeat top center / cover, #000 !important;
+  background:
+    url("https://fullerhkz.github.io/bj-forest-theme/img/BJ.gif")
+    no-repeat top center / cover,
+    #000 !important;
 }
 #logo{ min-height:260px; }
 
-/* Barra do usuário */
+/* ========== 4) BARRA DO USUÁRIO (id específico) ========== */
 #userinfo{
   background: rgba(7,12,12,.85) !important;
   backdrop-filter: blur(2px);
   color:#cbd6d1 !important;
   border:1px solid var(--line-1) !important;
-  border-radius:8px; box-shadow: var(--glow);
+  border-radius:8px;
+  box-shadow: var(--glow);
 }
 #userinfo a{ color:#e9eee9 !important; }
 #userinfo a:hover{ color:var(--gold-2) !important; }
 
-/* MENU moderno — apenas #menu/#menudrop */
+/* ========== 5) MENU — estilo pill/glass moderno (só #menu/#menudrop) ========== */
 #menu{
   border-radius:14px !important;
   border:1px solid var(--line-1) !important;
@@ -73,7 +66,10 @@
   box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.5) inset !important;
   padding:6px 10px !important;
 }
-#menudrop ul{ list-style:none; margin:0; padding:0; display:flex; align-items:center; justify-content:center; gap:16px; }
+#menudrop ul{
+  list-style:none; margin:0; padding:0;
+  display:flex; align-items:center; justify-content:center; gap:16px;
+}
 #menudrop ul li{ position:relative; }
 #menudrop ul > li > a{
   display:inline-flex; align-items:center; justify-content:center;
@@ -95,9 +91,12 @@
   background:
     linear-gradient(180deg, rgba(37,80,80,.60), rgba(18,36,36,.52)),
     radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.14), transparent 65%);
-  box-shadow: inset 0 -1px 0 rgba(240,216,148,.20), 0 10px 28px rgba(0,0,0,.55), 0 0 0 2px rgba(212,182,106,.18);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.20),
+              0 10px 28px rgba(0,0,0,.55),
+              0 0 0 2px rgba(212,182,106,.18);
   transform:translateY(-1px);
 }
+/* submenu */
 #menudrop ul ul{
   display:none; position:absolute; top:100%; left:0; z-index:1002;
   padding:10px; border-radius:12px; gap:8px; min-width:180px;
@@ -117,7 +116,7 @@
   background: linear-gradient(180deg, rgba(37,80,80,.56), rgba(18,36,36,.48));
 }
 
-/* Alert pill (opcional) */
+/* ========== 6) ALERT pill (opcional, usa .alertbar existente) ========== */
 .alertbar{
   text-align:center; color:#e6e6e6 !important; font-weight:700;
   max-width:600px; margin:8px auto; padding:10px;
@@ -128,7 +127,56 @@
 .alertbar a{ color:var(--gold-2) !important; text-decoration:underline !important; }
 .alertbar a:hover{ color:var(--gold-3) !important; text-decoration:none !important; }
 
-/* Responsivo do menu (não altera layout geral) */
+/* ========== 7) BOXES (se o site usa .box / .head / .body) ========== */
+.box{
+  border-radius:12px 12px 20px 20px;
+  background: linear-gradient(115deg, var(--bg-2) 60%, var(--teal-2) 100%);
+  border:1px solid #000;
+  box-shadow: 0 1px 4px #000, var(--glow);
+}
+.box .head{
+  padding:8px; color:var(--gold-2);
+  border-radius:10px 10px 0 0;
+  border:1px solid var(--gold-1);
+  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
+  box-shadow: 0 1px 4px #000, inset 0 -1px 0 rgba(240,216,148,.15);
+}
+.box .body{ padding:10px; }
+.box .body button{
+  cursor:pointer; color:#fff; letter-spacing:.075em; text-align:center;
+  padding:8px 18px; border-radius:80px; border:1px solid var(--gold-1);
+  background: linear-gradient(180deg, rgba(31,66,66,.9), rgba(18,36,36,.9));
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), var(--glow);
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+.box .body button:hover{
+  background: linear-gradient(180deg, rgba(37,80,80,.95), rgba(22,46,46,.95));
+  border-color: var(--gold-2);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.2), 0 0 0 2px rgba(212,182,106,.18);
+}
+
+/* ========== 8) TABELA DE TORRENTS (escopo seguro) ========== */
+table.torrent_table{
+  border-collapse:separate; border-spacing:0;
+  border:1px solid rgba(212,182,106,.25);
+  box-shadow: 0 1px 4px #000;
+}
+table.torrent_table tr.rowa{ background: var(--bg-2); }
+table.torrent_table td, table.torrent_table th{ padding:6px; text-align:left; }
+table.torrent_table .colhead{
+  background: linear-gradient(180deg, var(--bg-3), var(--teal-1));
+  font-weight:700; color:#fff; border-bottom:2px solid #000;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+}
+table.torrent_table .colhead a{ color:var(--gold-2) !important; }
+
+/* ========== 9) ACESSIBILIDADE (foco via teclado) ========== */
+#menudrop a:focus-visible{
+  outline:none !important;
+  box-shadow: 0 0 0 3px rgba(212,182,106,.35);
+}
+
+/* ========== 10) RESPONSIVO do menu (não altera o layout geral) ========== */
 @media (max-width: 900px){
   #menudrop ul{ flex-wrap:wrap; gap:10px; }
   #menudrop ul > li > a{ height:36px; padding:0 16px; font-size:11px; }
