@@ -1,0 +1,370 @@
+/* =========================================================
+   BJ Share — Forest Gold (EMBED SAFE)
+   - NÃO estiliza tags globais (body, img, a, h1..., table etc.)
+   - Só toca em IDs/classes específicas abaixo
+   ========================================================= */
+
+:root{
+  --bg-2:#0f1c1c;
+  --bg-3:#122424;
+  --gold-1:#d4b66a;
+  --gold-2:#e2c37a;
+  --gold-3:#f0d894;
+  --teal-1:#1a3737;
+  --teal-2:#1f4242;
+  --line-0:#000;
+  --line-1:#0b1010;
+  --glow:0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
+  --header-bg: url("https://fullerhkz.github.io/bj-forest-theme/img/BJ.gif");
+}
+
+/* HEADER (apenas os IDs do tema) */
+#header{
+  width:100%;
+  background: var(--header-bg) no-repeat top center/cover, #000;
+}
+#logo{ height:260px; }
+
+/* BARRA USUÁRIO (id específico) */
+#userinfo{
+  background: rgba(7,12,12,.85);
+  backdrop-filter: blur(2px);
+  color:#cbd6d1;
+  width:82%;
+  text-align:center;
+  font-size:12px;
+  padding:6px 0;
+  z-index:10;
+  min-width:850px;
+  position:relative;
+  top:35px;
+  margin:0 auto;
+  border:1px solid var(--line-1);
+  border-radius:8px;
+  box-shadow: var(--glow);
+}
+#userinfo a{ color:#e9eee9 !important; }
+#userinfo a:hover{ color:var(--gold-2) !important; }
+
+/* MENU (apenas #menu/#menudrop) */
+#menu{
+  position:relative;
+  margin:0 auto;
+  max-width:1200px;
+  text-align:center;
+  font-size:10pt;
+  z-index:1001;
+  border-radius:14px;
+  border:1px solid var(--line-1);
+  background: linear-gradient(90deg, rgba(18,36,36,.78), rgba(31,66,66,.78));
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.5) inset;
+  padding:6px 10px;
+}
+#menudrop ul{ list-style:none; margin:0; padding:0; display:flex; align-items:center; justify-content:center; gap:16px; }
+#menudrop ul li{ position:relative; }
+#menudrop ul > li > a{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:38px; padding:0 22px;
+  border-radius:999px; font-weight:700; font-size:12px; letter-spacing:.02em;
+  color:#e9efec !important; text-decoration:none !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.35);
+  background:
+    linear-gradient(180deg, rgba(28,58,58,.48), rgba(14,28,28,.40)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.08), transparent 60%);
+  border:1px solid rgba(212,182,106,.28);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), 0 6px 16px rgba(0,0,0,.45);
+  transform:translateY(0);
+  transition:transform .15s, box-shadow .2s, border-color .2s, background .2s, color .2s;
+}
+#menudrop ul > li > a:hover{
+  border-color: var(--gold-2);
+  color:#fff !important;
+  background:
+    linear-gradient(180deg, rgba(37,80,80,.60), rgba(18,36,36,.52)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.14), transparent 65%);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.20), 0 10px 28px rgba(0,0,0,.55), 0 0 0 2px rgba(212,182,106,.18);
+  transform:translateY(-1px);
+}
+#menudrop ul ul{
+  display:none; position:absolute; top:100%; left:0; z-index:1002;
+  padding:10px; border-radius:12px; gap:8px; min-width:180px;
+  background: linear-gradient(180deg, rgba(18,36,36,.92), rgba(12,24,24,.94));
+  border:1px solid rgba(212,182,106,.28);
+  box-shadow: 0 12px 30px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.5) inset;
+}
+#menudrop ul li:hover > ul{ display:flex; flex-direction:column; }
+#menudrop ul ul a{
+  height:34px; padding:0 14px; border-radius:10px; font-weight:600;
+  color:#e9efec !important; text-decoration:none !important;
+  background: linear-gradient(180deg, rgba(28,58,58,.45), rgba(14,28,28,.38));
+  border:1px solid rgba(212,182,106,.22);
+}
+#menudrop ul ul a:hover{
+  border-color: var(--gold-2);
+  background: linear-gradient(180deg, rgba(37,80,80,.56), rgba(18,36,36,.48));
+}
+
+/* ALERT BAR (ids/classes específicas) */
+#alerts{ padding:10px 0; }
+.alertbar{
+  text-align:center; color:#e6e6e6; font-weight:700; font-size:.99em;
+  max-width:600px; margin:8px auto; padding:10px;
+  background: linear-gradient(0deg, var(--bg-2) 0%, var(--bg-3) 100%);
+  border:1px solid var(--gold-1);
+  border-radius:24px;
+  box-shadow: var(--glow);
+}
+.alertbar a{ color:var(--gold-2) !important; text-decoration:underline !important; }
+.alertbar a:hover{ color:var(--gold-3) !important; text-decoration:none !important; }
+
+/* BOXES (apenas classe .box e seus filhos) */
+.box{
+  font-size:13px;
+  border-radius:12px 12px 20px 20px;
+  background: linear-gradient(115deg, var(--bg-2) 60%, var(--teal-2) 100%);
+  border:1px solid var(--line-0);
+  margin-bottom:20px;
+  box-shadow: 0 1px 4px #000, var(--glow);
+}
+.box .head{
+  padding:8px;
+  color:var(--gold-2);
+  border-radius:10px 10px 0 0;
+  border:1px solid var(--gold-1);
+  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
+  box-shadow: 0 1px 4px #000, inset 0 -1px 0 rgba(240,216,148,.15);
+}
+.box .body{ padding:10px; }
+.box .body button{
+  cursor:pointer; color:#fff; letter-spacing:.075em; text-align:center;
+  padding:8px 18px; border-radius:80px; border:1px solid var(--gold-1);
+  background: linear-gradient(180deg, rgba(31,66,66,.9), rgba(18,36,36,.9));
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), var(--glow);
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+.box .body button:hover{
+  background: linear-gradient(180deg, rgba(37,80,80,.95), rgba(22,46,46,.95));
+  border-color: var(--gold-2);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.2), 0 0 0 2px rgba(212,182,106,.18);
+}
+
+/* TABELA DE TORRENTS (escopo pela classe para não afetar outras tabelas) */
+table.torrent_table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border:1px solid rgba(212,182,106,.25);
+  box-shadow: 0 1px 4px #000;
+}
+table.torrent_table tr{ border:1px solid #000; }
+table.torrent_table tr.rowa{ background: var(--bg-2); }
+table.torrent_table td, table.torrent_table th{ padding:6px; text-align:left; }
+table.torrent_table .colhead{
+  background: linear-gradient(180deg, var(--bg-3), var(--teal-1));
+  font-weight:700; color:#fff; border-bottom:2px solid #000;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+}
+table.torrent_table .colhead a{ color:var(--gold-2) !important; }
+
+/* Tooltip específico */
+a.BJinfoBox span{
+  position:absolute; min-width:185px; color:#eee;
+  background: rgba(18,36,36,.95);
+  line-height:15px; visibility:hidden; border-radius:6px;
+  text-decoration:none; padding:7px 10px; opacity:0; bottom:0;
+  transition: opacity .4s, bottom .4s;
+  border:1px solid var(--gold-1); box-shadow: var(--glow);
+}
+a:hover.BJinfoBox span{ visibility:visible; bottom:20px; left:40%; margin-left:-76px; opacity:.95; }
+
+/* Responsivo simples só no menu */
+@media (max-width: 900px){
+  #menudrop ul{ flex-wrap:wrap; gap:10px; }
+  #menudrop ul > li > a{ height:36px; padding:0 16px; font-size:11px; }
+}
+
+   - NÃO estiliza tags globais (body, img, a, h1..., table etc.)
+   - Só toca em IDs/classes específicas abaixo
+   - Use esta versão no campo de “CSS custom” do site
+   ========================================================= */
+
+:root{
+  --bg-2:#0f1c1c;
+  --bg-3:#122424;
+  --gold-1:#d4b66a;
+  --gold-2:#e2c37a;
+  --gold-3:#f0d894;
+  --teal-1:#1a3737;
+  --teal-2:#1f4242;
+  --line-0:#000;
+  --line-1:#0b1010;
+  --glow:0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
+  --header-bg: url("https://fullerhkz.github.io/bj-forest-theme/img/BJ.gif");
+}
+
+/* HEADER (apenas os IDs do tema) */
+#header{
+  width:100%;
+  background: var(--header-bg) no-repeat top center/cover, #000;
+}
+#logo{ height:260px; }
+
+/* BARRA USUÁRIO (id específico) */
+#userinfo{
+  background: rgba(7,12,12,.85);
+  backdrop-filter: blur(2px);
+  color:#cbd6d1;
+  width:82%;
+  text-align:center;
+  font-size:12px;
+  padding:6px 0;
+  z-index:10;
+  min-width:850px;
+  position:relative;
+  top:35px;
+  margin:0 auto;
+  border:1px solid var(--line-1);
+  border-radius:8px;
+  box-shadow: var(--glow);
+}
+#userinfo a{ color:#e9eee9 !important; }
+#userinfo a:hover{ color:var(--gold-2) !important; }
+
+/* MENU (apenas #menu/#menudrop) */
+#menu{
+  position:relative;
+  margin:0 auto;
+  max-width:1200px;
+  text-align:center;
+  font-size:10pt;
+  z-index:1001;
+  border-radius:14px;
+  border:1px solid var(--line-1);
+  background: linear-gradient(90deg, rgba(18,36,36,.78), rgba(31,66,66,.78));
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.5) inset;
+  padding:6px 10px;
+}
+#menudrop ul{ list-style:none; margin:0; padding:0; display:flex; align-items:center; justify-content:center; gap:16px; }
+#menudrop ul li{ position:relative; }
+#menudrop ul > li > a{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:38px; padding:0 22px;
+  border-radius:999px; font-weight:700; font-size:12px; letter-spacing:.02em;
+  color:#e9efec !important; text-decoration:none !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.35);
+  background:
+    linear-gradient(180deg, rgba(28,58,58,.48), rgba(14,28,28,.40)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.08), transparent 60%);
+  border:1px solid rgba(212,182,106,.28);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), 0 6px 16px rgba(0,0,0,.45);
+  transform:translateY(0);
+  transition:transform .15s, box-shadow .2s, border-color .2s, background .2s, color .2s;
+}
+#menudrop ul > li > a:hover{
+  border-color: var(--gold-2);
+  color:#fff !important;
+  background:
+    linear-gradient(180deg, rgba(37,80,80,.60), rgba(18,36,36,.52)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.14), transparent 65%);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.20), 0 10px 28px rgba(0,0,0,.55), 0 0 0 2px rgba(212,182,106,.18);
+  transform:translateY(-1px);
+}
+#menudrop ul ul{
+  display:none; position:absolute; top:100%; left:0; z-index:1002;
+  padding:10px; border-radius:12px; gap:8px; min-width:180px;
+  background: linear-gradient(180deg, rgba(18,36,36,.92), rgba(12,24,24,.94));
+  border:1px solid rgba(212,182,106,.28);
+  box-shadow: 0 12px 30px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.5) inset;
+}
+#menudrop ul li:hover > ul{ display:flex; flex-direction:column; }
+#menudrop ul ul a{
+  height:34px; padding:0 14px; border-radius:10px; font-weight:600;
+  color:#e9efec !important; text-decoration:none !important;
+  background: linear-gradient(180deg, rgba(28,58,58,.45), rgba(14,28,28,.38));
+  border:1px solid rgba(212,182,106,.22);
+}
+#menudrop ul ul a:hover{
+  border-color: var(--gold-2);
+  background: linear-gradient(180deg, rgba(37,80,80,.56), rgba(18,36,36,.48));
+}
+
+/* ALERT BAR (ids/classes específicas) */
+#alerts{ padding:10px 0; }
+.alertbar{
+  text-align:center; color:#e6e6e6; font-weight:700; font-size:.99em;
+  max-width:600px; margin:8px auto; padding:10px;
+  background: linear-gradient(0deg, var(--bg-2) 0%, var(--bg-3) 100%);
+  border:1px solid var(--gold-1);
+  border-radius:24px;
+  box-shadow: var(--glow);
+}
+.alertbar a{ color:var(--gold-2) !important; text-decoration:underline !important; }
+.alertbar a:hover{ color:var(--gold-3) !important; text-decoration:none !important; }
+
+/* BOXES (apenas classe .box e seus filhos) */
+.box{
+  font-size:13px;
+  border-radius:12px 12px 20px 20px;
+  background: linear-gradient(115deg, var(--bg-2) 60%, var(--teal-2) 100%);
+  border:1px solid var(--line-0);
+  margin-bottom:20px;
+  box-shadow: 0 1px 4px #000, var(--glow);
+}
+.box .head{
+  padding:8px;
+  color:var(--gold-2);
+  border-radius:10px 10px 0 0;
+  border:1px solid var(--gold-1);
+  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
+  box-shadow: 0 1px 4px #000, inset 0 -1px 0 rgba(240,216,148,.15);
+}
+.box .body{ padding:10px; }
+.box .body button{
+  cursor:pointer; color:#fff; letter-spacing:.075em; text-align:center;
+  padding:8px 18px; border-radius:80px; border:1px solid var(--gold-1);
+  background: linear-gradient(180deg, rgba(31,66,66,.9), rgba(18,36,36,.9));
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), var(--glow);
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+.box .body button:hover{
+  background: linear-gradient(180deg, rgba(37,80,80,.95), rgba(22,46,46,.95));
+  border-color: var(--gold-2);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.2), 0 0 0 2px rgba(212,182,106,.18);
+}
+
+/* TABELA DE TORRENTS (escopo pela classe para não afetar outras tabelas) */
+table.torrent_table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border:1px solid rgba(212,182,106,.25);
+  box-shadow: 0 1px 4px #000;
+}
+table.torrent_table tr{ border:1px solid #000; }
+table.torrent_table tr.rowa{ background: var(--bg-2); }
+table.torrent_table td, table.torrent_table th{ padding:6px; text-align:left; }
+table.torrent_table .colhead{
+  background: linear-gradient(180deg, var(--bg-3), var(--teal-1));
+  font-weight:700; color:#fff; border-bottom:2px solid #000;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+}
+table.torrent_table .colhead a{ color:var(--gold-2) !important; }
+
+/* Tooltip específico */
+a.BJinfoBox span{
+  position:absolute; min-width:185px; color:#eee;
+  background: rgba(18,36,36,.95);
+  line-height:15px; visibility:hidden; border-radius:6px;
+  text-decoration:none; padding:7px 10px; opacity:0; bottom:0;
+  transition: opacity .4s, bottom .4s;
+  border:1px solid var(--gold-1); box-shadow: var(--glow);
+}
+a:hover.BJinfoBox span{ visibility:visible; bottom:20px; left:40%; margin-left:-76px; opacity:.95; }
+
+/* Responsivo simples só no menu */
+@media (max-width: 900px){
+  #menudrop ul{ flex-wrap:wrap; gap:10px; }
+  #menudrop ul > li > a{ height:36px; padding:0 16px; font-size:11px; }
+}
