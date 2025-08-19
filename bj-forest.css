@@ -1,0 +1,322 @@
+/* =========================================================
+   BJ Share — Tema "Forest Gold"
+   Autor: Füller
+   Notas:
+  - Paleta puxada do GIF: fundo verde-escuro com glow dourado
+   ========================================================= */
+
+:root{
+  /* PALETA */
+  --bg-0: #070c0c;            /* mais escuro */
+  --bg-1: #0b1414;
+  --bg-2: #0f1c1c;            /* cards / linhas ímpares */
+  --bg-3: #122424;            /* cabeçalhos suaves */
+  --ink:  #dfe6e3;            /* texto principal */
+  --muted:#a6b2ae;            /* texto secundário */
+
+  /* ACENTOS (dourados) */
+  --gold-1:#d4b66a;           /* primário */
+  --gold-2:#e2c37a;           /* hover */
+  --gold-3:#f0d894;           /* brilho forte */
+
+  /* ACENTOS (verde/teal) */
+  --teal-1:#1a3737;
+  --teal-2:#1f4242;
+  --teal-3:#255050;
+
+  /* BORDAS / SOMBRAS */
+  --line-0:#000;
+  --line-1:#0b1010;
+  --line-2:#233131;
+  --glow: 0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
+
+  /* IMG / BACKGROUNDS */
+  --header-bg: url("https://i.bj-share.info/0a09a1e38f1546788e30ed5d55da4b4c.gif"); /* <-- troque aqui */
+  --grain: radial-gradient(1200px 400px at 50% -200px, rgba(240,216,148,.07), transparent 60%),
+           radial-gradient(900px 320px at 50% 0, rgba(26,55,55,.35), transparent 55%),
+           linear-gradient(180deg, rgba(7,12,12,1), rgba(11,20,20,.98) 40%, rgba(15,28,28,.98) 70%, #0b1414 100%);
+}
+
+/* GERAL ------------------------------------------------- */
+html,body{
+  background: var(--grain), var(--bg-0) !important;
+  color: var(--ink);
+  font-size: 11.6px;
+  min-width: 950px;
+}
+img{ border-radius:10px; }
+a{ color:#c9d4cf; text-decoration:none; }
+a:hover{ color:var(--gold-2); text-decoration:underline; }
+
+h1,h2,h3,h4{ margin:5px 0; font-weight:700; }
+h2{ text-align:center; font-size:12pt; color:var(--gold-2); }
+h4{ font-size:8pt; color:var(--muted); }
+p{ margin:10px 5px; }
+li{ margin:9px 11px; }
+
+/* FORM / CAMPOS ---------------------------------------- */
+input, textarea{
+  color:#fff;
+  border:1px solid var(--line-2);
+  background: linear-gradient(90deg, var(--teal-1) 0%, var(--teal-2) 100%);
+}
+input:focus, textarea:focus{
+  outline:1px solid var(--gold-1);
+  box-shadow:0 0 0 2px rgba(212,182,106,.18);
+}
+
+/* HEADER / HERO ---------------------------------------- */
+#header{
+  width:100%;
+  padding:0;
+  background: var(--header-bg) no-repeat top center;
+  background-size: cover;
+  background-color:#000; /* fallback */
+}
+#logo{
+  width:100%;
+  height:267px;
+  margin:0 auto;
+}
+#logo a{ display:block; width:320px; height:150px; border:none; }
+
+/* WRAPPER / CONTENT ------------------------------------ */
+#wrapper{ width:100%; margin:0 auto; }
+#content{
+  margin:auto;
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  top:60px;
+}
+
+/* BARRA SUPERIOR (userinfo) ---------------------------- */
+#userinfo{
+  background: rgba(7,12,12,.8);
+  backdrop-filter: blur(2px);
+  color:#cbd6d1;
+  width:82%;
+  text-align:center;
+  font-size:8pt;
+  padding:6px 0;
+  z-index:10;
+  min-width:850px;
+  position:relative;
+  top:35px;
+  margin-left:130px;
+  border:1px solid var(--line-1);
+  border-radius:8px;
+  box-shadow: var(--glow);
+}
+#userinfo a{ color:#e9eee9; }
+#userinfo a:hover{ color:var(--gold-2); }
+
+/* MENU -------------------------------------------------- */
+#menu{
+  position:absolute;
+  left:100px; right:100px; top:268px;
+  text-align:center;
+  font-size:10pt; z-index:1001; min-width:850px;
+  border-radius:10px;
+  border:1px solid var(--line-1);
+  background: linear-gradient(90deg, rgba(18,36,36,.75) 0%, rgba(31,66,66,.75) 100%);
+  box-shadow: var(--glow);
+}
+#menudrop ul{ list-style:none; margin:0; padding:0; float:left; position:relative; }
+#menudrop ul li{ position:relative; float:left; margin:0; padding:0; width:145px; }
+#menudrop ul a{
+  display:block; line-height:32px; padding:0 15px;
+  color:#cdd7d4; font-weight:700; font-size:12px;
+}
+#menudrop ul li:hover{ background: rgba(212,182,106,.12); }
+#menudrop ul ul{
+  display:none; position:absolute; top:100%; left:0;
+  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
+  border:1px solid var(--gold-1); border-radius:8px;
+}
+#menudrop ul li:hover>ul{ display:block; }
+#menudrop ul ul a{ padding:10px 15px; }
+#menudrop ul ul li{ float:none; width:145px; }
+
+/* BUSCA ------------------------------------------------- */
+#searchbars{
+  position:absolute; top:240px; width:100%;
+  text-align:center; padding:4px 0; min-width:850px;
+}
+#searchbars input{
+  padding:6px 20px; font-size:.9em; color:#d7e1dc;
+  border:1px solid var(--teal-3);
+  background: linear-gradient(5deg, var(--teal-1), var(--teal-2));
+  border-image: none;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.3), 0 0 0 1px rgba(212,182,106,.08);
+}
+#searchbars input:focus{
+  border-color: var(--gold-1);
+  box-shadow: 0 0 0 2px rgba(212,182,106,.25);
+}
+
+/* ALERTS / INFO BAR ------------------------------------ */
+#alerts{
+  position:relative; margin-top:32px; margin-bottom:-60px;
+  padding:10px 0; width:100%; min-width:850px;
+  background: rgba(7,12,12,.8);
+  border-top:1px solid var(--line-1);
+  border-bottom:1px solid var(--line-1);
+}
+.alertbar{
+  text-align:center; color:#e6e6e6; font-weight:700; font-size:.99em;
+  width:600px; margin:8px auto; padding:10px;
+  background: linear-gradient(0deg, var(--bg-2) 0%, var(--bg-3) 100%);
+  border:1px solid var(--gold-1);
+  border-radius:24px;
+  box-shadow: var(--glow);
+}
+.alertbar a{ color:var(--gold-2); text-decoration:underline; }
+.alertbar a:hover{ color:var(--gold-3); text-decoration:none; }
+
+/* COLUNAS / BOXES -------------------------------------- */
+.thin,.widethin{ max-width:1152px; margin:0 auto; }
+.box{
+  font-size:8.7pt;
+  border-radius:12px 12px 20px 20px;
+  background: linear-gradient(115deg, var(--bg-2) 60%, var(--teal-2) 100%);
+  border:1px solid var(--line-0);
+  margin-bottom:20px;
+  box-shadow: 0 1px 4px #000, var(--glow);
+}
+.head{
+  padding:8px;
+  color:var(--gold-2);
+  border-radius:10px 10px 0 0;
+  border:1px solid var(--gold-1);
+  background: linear-gradient(94deg, var(--teal-1), var(--teal-2));
+  box-shadow: 0 1px 4px #000, inset 0 -1px 0 rgba(240,216,148,.15);
+}
+.body{ padding:10px; }
+
+/* TABELAS ---------------------------------------------- */
+table{
+  width:100%; border-collapse:collapse;
+  border:1px solid rgba(212,182,106,.25);
+  box-shadow: 0 1px 4px #000;
+}
+tr{ border:1px solid #000; }
+tr.rowa{ background: var(--bg-2); }
+td,th{ padding:6px; text-align:left; }
+#torrent_details tr td{ background-color: var(--bg-2); }
+.colhead{
+  background: linear-gradient(180deg, var(--bg-3), var(--teal-1));
+  font-weight:700; color:#fff; border-bottom:2px solid #000;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+}
+.colhead_dark{
+  background-color: var(--teal-1);
+  color:#eaeaea; border-bottom:1px solid #000;
+  box-shadow: 0 1px 4px #000;
+}
+.colhead a, .colhead_dark a{ color:var(--gold-2); }
+
+/* LISTAS DE TORRENTS ----------------------------------- */
+.torrent_table tr.group,
+tr.group_torrent,
+tr.torrent{
+  background: linear-gradient(111deg, var(--bg-3) 65.9%, var(--teal-1) 101.82%);
+}
+.torrent_table div.tags{ font-weight:400; }
+.torrent_table tr .center{ vertical-align:middle; text-align:center; }
+
+/* QUOTES / POSTS --------------------------------------- */
+tbody{ max-width:690px; background: #0a0f0f; }
+blockquote{
+  margin:10px; padding:10px;
+  border:1px dashed rgba(212,182,106,.45);
+  background: rgba(26,55,55,.25);
+}
+
+/* ERROS / SUCESSO -------------------------------------- */
+.error_message{
+  border:1px solid #7a2b2b; padding:6px 0; text-align:center;
+  background: linear-gradient(180deg, #5a1f1f, #3a1414);
+  color:#fff; font-weight:700;
+}
+.save_message{
+  border:1px solid rgba(212,182,106,.6); padding:6px 0; text-align:center;
+  background: linear-gradient(180deg, #f7e889, #d4b66a);
+  color:#3b2c0c; font-weight:700;
+}
+
+/* BOTÕES ----------------------------------------------- */
+button, input[type=button], input[type=submit]{
+  min-width:30px; margin-bottom:0; cursor:pointer;
+  color:#fff; letter-spacing:.075em; text-align:center;
+  padding:8px 18px; border-radius:80px;
+  border:1px solid var(--gold-1);
+  background: linear-gradient(180deg, rgba(31,66,66,.9), rgba(18,36,36,.9));
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), var(--glow);
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+button:hover, input[type=button]:hover, input[type=submit]:hover{
+  background: linear-gradient(180deg, rgba(37,80,80,.95), rgba(22,46,46,.95));
+  border-color: var(--gold-2);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.2), 0 0 0 2px rgba(212,182,106,.18);
+}
+button:disabled, input[type=button]:disabled, input[type=submit]:disabled{
+  background: #0b1010; color:#888; cursor:default; border-color:#1a1a1a;
+}
+
+/* RATING COLORS (mantidos) ----------------------------- */
+.r01,.r02{ color:#ff1300; } .r03{ color:#ff2600; } .r04{ color:#ff4c00; }
+.r05,.r06{ color:#ff5e00; } .r07{ color:#ff7100; } .r08{ color:#ff9700; }
+.r09{ color:#ffaa00; } .r10{ color:#74c42e; } .r20,.r50,.r99{ color:#418b00; }
+
+/* ROLAGEM PARA TOPO / FINAL ---------------------------- */
+#irtopo, #irfinal{
+  position:fixed; right:10px; width:40px; height:40px;
+  background-color: var(--gold-1); border-radius:10px; text-indent:-9999px;
+  box-shadow: var(--glow);
+}
+#irtopo{ bottom:60px; display:none; }
+#irfinal{ bottom:10px; display:block; }
+#irtopo:hover, #irfinal:hover{ background-color: var(--gold-2); }
+
+/* TOOLTIP ---------------------------------------------- */
+a.BJinfoBox span{
+  position:absolute; min-width:185px; color:#eee;
+  background: rgba(18,36,36,.95);
+  line-height:15px; visibility:hidden; border-radius:6px;
+  text-decoration:none; padding:7px 10px; opacity:0; bottom:0;
+  transition: opacity .4s, bottom .4s;
+  border:1px solid var(--gold-1); box-shadow: var(--glow);
+}
+a:hover.BJinfoBox span{ visibility:visible; bottom:20px; left:40%; margin-left:-76px; opacity:.95; }
+
+/* CHAT / NOTY ------------------------------------------ */
+#txtChat, input[name="chatbarText"]{
+  background: linear-gradient(90deg, #343434 47%, #444 111%);
+  color:#fff;
+}
+#chatForm, form[name="chatForm"]{
+  background: linear-gradient(115deg, var(--bg-2) 62%, var(--teal-1) 98%);
+}
+ul#noty_bottomRight_layout_container li[style*="background"]{
+  background: linear-gradient(90deg, var(--bg-2), var(--teal-1)) !important;
+  border:1px solid var(--gold-1) !important; color:#fff !important; width:300px !important;
+}
+div.noty_buttons[style*="background-color: rgb(255, 255, 255)"]{
+  background-color:#555 !important; border-top:1px solid #666 !important; padding:5px; text-align:center !important;
+}
+
+/* DIVERSOS --------------------------------------------- */
+.center{ text-align:center; }
+.right{ text-align:right; }
+.min_padding{ padding:0; margin:0; }
+.pad{ padding:1em; }
+.vertical_space{ margin-bottom:10px; }
+.hidden{ display:none; }
+.tags a{ color:#98aaa6; } .tags a:hover{ color:#e7eee9; text-decoration:none; }
+
+/* TWEAKS RESPONSIVOS SIMPLES --------------------------- */
+@media (max-width: 1200px){
+  #userinfo{ width:90%; margin-left:5%; }
+  #menu{ left:5%; right:5%; }
+}
