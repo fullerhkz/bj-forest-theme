@@ -322,7 +322,7 @@ div.noty_buttons[style*="background-color: rgb(255, 255, 255)"]{
 }
 
 /* ============================
-   Botões do menu - estilo Neon/Glass
+   Botões do menu - estilo moderno
    ============================ */
 nav ul {
     list-style: none;
@@ -336,31 +336,25 @@ nav ul {
 nav ul li a {
     display: inline-block;
     padding: 12px 28px;
-    border-radius: 999px; /* formato pill */
+    border-radius: 8px;
     font-weight: 600;
     font-size: 15px;
     text-decoration: none;
     color: #f5f5f5;
-    background: rgba(20, 35, 35, 0.45); /* semi-transparente */
-    border: 1px solid rgba(212, 182, 106, 0.45); /* dourado suave */
-    backdrop-filter: blur(6px);
-    box-shadow: 
-        0 0 12px rgba(212,182,106,0.25), 
-        inset 0 0 6px rgba(255,255,255,0.08);
-    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #1a1f24, #0f1215);
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.7),
+                -2px -2px 6px rgba(255,255,255,0.05);
+    transition: all 0.25s ease-in-out;
 }
 
 nav ul li a:hover {
-    color: #FFD700; /* dourado forte no texto */
-    border-color: #FFD700;
-    background: rgba(30, 50, 50, 0.55);
-    box-shadow: 
-        0 0 18px rgba(212,182,106,0.5),
-        0 0 6px rgba(255,255,255,0.1) inset;
-    transform: translateY(-2px) scale(1.02);
+    background: linear-gradient(145deg, #2a3036, #181b1f);
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.8),
+                -3px -3px 8px rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+    color: #FFD700; /* dourado no hover */
 }
 
 nav ul li a:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 6px rgba(212,182,106,0.35) inset;
+    transform: scale(0.96);
 }
