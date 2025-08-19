@@ -258,3 +258,82 @@ img{ border-radius:10px }
   #menudrop ul>li>a{ height:34px; padding:0 16px; font-size:11px }
 }
 
+/* =========================================================
+   PATCH 01 — correções de sobreposição e alinhamento
+   - dropdown acima dos botões
+   - impedir vazamento de "Destaques"
+   - alinhar pílulas do submenu
+   ========================================================= */
+
+/* 1) Coloca o menu e, principalmente, o DROPDOWN no topo da pilha */
+#menu { position: relative; z-index: 3000; overflow: visible !important; }
+#menudrop { position: relative; z-index: 3001; }
+#menudrop ul { position: relative; z-index: 3002; }
+#menudrop ul li { position: relative; z-index: 1; }
+#menudrop ul li:hover { z-index: 4000; }
+
+/* O dropdown precisa sempre vir por cima dos próprios botões */
+#menudrop ul ul{
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);   /* afastinho do botão para não "grudar" */
+  left: 0;
+  z-index: 5000;
+  min-width: 220px;
+  padding: 12px 10px;
+  border-radius: 12px;
+}
+#menudrop ul li:hover > ul{ display: block; }
+
+/* NADA deve "podar" o dropdown */
+#header, #userinfo, #alerts, .box, .thin, #content {
+  overflow: visible !important;
+}
+
+/* Mantém o botão acima, porém sem bloquear o próprio dropdown */
+#menudrop ul > li > a{ position: relative; z-index: 2; }
+#menudrop ul li:hover > a{ z-index: 5001; }
+#menudrop ul li:hover > ul{ z-index: 5002; }
+
+/* 2) Alinhamento dos itens do SUBMENU (pílulas) */
+#menudrop ul ul li { width: 100%; }
+#menudrop ul ul a{
+  display: flex; align-items: center; justify-content: center;
+  height: 36px; padding: 0 14px; margin: 6px 0;
+  width: 100%; min-width: 200px; text-align: center;
+  /* mantém seu estilo atual, só garantindo consistência geométrica */
+}
+
+/* 3) Os "Destaques" não devem vazar imagens para fora do bloco */
+#destaques, .destaques, #featured, .featured {
+  position: relative !important;
+  overflow: hidden !important;
+}
+#destaques img, .destaques img, #featured img, .featured img{
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 6px;
+}
+
+/* 3.1) Qualquer prévia/tooltip gigante que surja ali respeita o container */
+.preview, .thumbnail-preview, .bbcode_preview, .tooltip,
+.autoclose, .autoClose, .auto-close {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* 4) Os avisos (alerts) devem ficar ABAIXO do dropdown, para não cobrir */
+#alerts{ position: relative; z-index: 100; }
+
+/* 5) Ajuste sutil de espaçamentos para evitar encavalamento em resoluções menores */
+#menu + #userinfo, #userinfo + #alerts { margin-top: 8px; }
+
+/* 6) (Opcional) melhora o foco pelo teclado no dropdown */
+#menudrop a:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212,182,106,.35);
+}
+
+
+
