@@ -1,0 +1,99 @@
+/* =========================================================
+   BJ Share — Forest Gold (WRAPPER)
+   ========================================================= */
+
+/* 1) CSS NATIVOS DO SITE */
+@import url("https://bj-share.info/static/styles/global.css?v=1748303515");
+@import url("https://bj-share.info/static/styles/fa-pro.css?v=1628110657");
+@import url("https://bj-share.info/static/styles/chosen.css");
+
+/* 2) NOSSOS AJUSTES */
+:root{
+  --bg-2:#0f1c1c;
+  --bg-3:#122424;
+  --gold-1:#d4b66a;
+  --gold-2:#e2c37a;
+  --gold-3:#f0d894;
+  --teal-1:#1a3737;
+  --teal-2:#1f4242;
+  --line-1:#0b1010;
+  --glow:0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
+}
+
+/* HEADER com seu GIF */
+#header{
+  background: url("https://fullerhkz.github.io/bj-forest-theme/img/BJ.gif") no-repeat top center / cover, #000 !important;
+}
+#logo{ min-height:260px; }
+
+/* Barra do usuário */
+#userinfo{
+  background: rgba(7,12,12,.85) !important;
+  backdrop-filter: blur(2px);
+  color:#cbd6d1 !important;
+  border:1px solid var(--line-1) !important;
+  border-radius:8px; box-shadow: var(--glow);
+}
+
+/* MENU */
+#menu{
+  border-radius:14px !important;
+  border:1px solid var(--line-1) !important;
+  background: linear-gradient(90deg, rgba(18,36,36,.78), rgba(31,66,66,.78)) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.5) inset !important;
+  padding:6px 10px !important;
+}
+#menudrop ul{ list-style:none; margin:0; padding:0; display:flex; align-items:center; justify-content:center; gap:16px; }
+#menudrop ul li{ position:relative; }
+#menudrop ul > li > a{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:38px; padding:0 22px; border-radius:999px;
+  font-weight:700; font-size:12px; letter-spacing:.02em;
+  color:#e9efec !important; text-decoration:none !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.35);
+  background:
+    linear-gradient(180deg, rgba(28,58,58,.48), rgba(14,28,28,.40)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.08), transparent 60%);
+  border:1px solid rgba(212,182,106,.28);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.12), 0 6px 16px rgba(0,0,0,.45);
+  transition:transform .15s, box-shadow .2s, border-color .2s, background .2s, color .2s;
+}
+#menudrop ul > li > a:hover{
+  border-color: var(--gold-2);
+  color:#fff !important;
+  background:
+    linear-gradient(180deg, rgba(37,80,80,.60), rgba(18,36,36,.52)),
+    radial-gradient(120% 120% at 50% -20%, rgba(240,216,148,.14), transparent 65%);
+  box-shadow: inset 0 -1px 0 rgba(240,216,148,.20), 0 10px 28px rgba(0,0,0,.55), 0 0 0 2px rgba(212,182,106,.18);
+  transform:translateY(-1px);
+}
+#menudrop ul ul{
+  display:none; position:absolute; top:100%; left:0; z-index:1002;
+  padding:10px; border-radius:12px; gap:8px; min-width:180px;
+  background: linear-gradient(180deg, rgba(18,36,36,.92), rgba(12,24,24,.94));
+  border:1px solid rgba(212,182,106,.28);
+  box-shadow: 0 12px 30px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.5) inset;
+}
+#menudrop ul li:hover > ul{ display:flex; flex-direction:column; }
+#menudrop ul ul a{
+  height:34px; padding:0 14px; border-radius:10px; font-weight:600;
+  color:#e9efec !important; text-decoration:none !important;
+  background: linear-gradient(180deg, rgba(28,58,58,.45), rgba(14,28,28,.38));
+  border:1px solid rgba(212,182,106,.22);
+}
+#menudrop ul ul a:hover{
+  border-color: var(--gold-2);
+  background: linear-gradient(180deg, rgba(37,80,80,.56), rgba(18,36,36,.48));
+}
+
+/* Alert pill */
+.alertbar{
+  text-align:center; color:#e6e6e6 !important; font-weight:700;
+  max-width:600px; margin:8px auto; padding:10px;
+  background: linear-gradient(0deg, var(--bg-2) 0%, var(--bg-3) 100%) !important;
+  border:1px solid var(--gold-1) !important;
+  border-radius:24px; box-shadow: var(--glow);
+}
+.alertbar a{ color:var(--gold-2) !important; text-decoration:underline !important; }
+.alertbar a:hover{ color:var(--gold-3) !important; text-decoration:none !important; }
