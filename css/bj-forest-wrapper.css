@@ -1,13 +1,41 @@
 /* =========================================================
-   BJ Share — Forest Gold (WRAPPER)
+   BJ Share — Forest Gold (WRAPPER COMPLETO)
+   - Carrega o CSS nativo do site primeiro (via @import)
+   - Aplica só os nossos ajustes depois, de forma segura
+   - Use esta URL no campo de CSS do site:
+   - https://fullerhkz.github.io/bj-forest-theme/css/bj-forest-wrapper.css?v=1
    ========================================================= */
 
-/* 1) CSS NATIVOS DO SITE */
+/* ========== 1) CSS NATIVOS DO SITE (copiados do Network) ========== */
 @import url("https://bj-share.info/static/styles/global.css?v=1748303515");
 @import url("https://bj-share.info/static/styles/fa-pro.css?v=1628110657");
 @import url("https://bj-share.info/static/styles/chosen.css");
 
-/* 2) NOSSOS AJUSTES */
+@import url("https://bj-share.info/static/styles/dropzone.css?v=1599511097");
+@import url("https://bj-share.info/static/styles/jquery.passwordRequirements.css?v=1685050682");
+
+/* style.css apareceu várias vezes com versões diferentes — importo todas
+   (o navegador ignora duplicata sem custo relevante) */
+@import url("https://bj-share.info/static/styles/style.css?v=1599511097");
+@import url("https://bj-share.info/static/styles/style.css?v=1753570876");
+
+/* sedditor.css (editor) */
+@import url("https://bj-share.info/static/styles/sedditor.css?v=1742607196");
+
+/* Fancybox (3 arquivos) */
+@import url("https://bj-share.info/static/styles/jquery.fancybox.css?v=1619216025");
+@import url("https://bj-share.info/static/styles/jquery.fancybox-buttons.css?v=1599349412");
+@import url("https://bj-share.info/static/styles/jquery.fancybox-thumbs.css?v=1599349412");
+
+/* main.css “grandão” (224 KB no seu print)
+   Se esta URL não bater, copie o Request URL EXATO do DevTools e substitua. */
+@import url("https://bj-share.info/static/styles/main.css?attr=aHR0cHM6Ly9hai1zaGFyZS5pbmZvL2ZGV4L...");
+
+/* (opcional) Google Fonts visto no Network — apenas se realmente precisar
+@import url("https://fonts.googleapis.com/css?family=Roboto:500,100,700,400,300");
+*/
+
+/* ========== 2) NOSSOS AJUSTES (alvos específicos, sem mexer no resto) ========== */
 :root{
   --bg-2:#0f1c1c;
   --bg-3:#122424;
@@ -20,7 +48,7 @@
   --glow:0 0 40px rgba(240,216,148,.12), 0 0 6px rgba(212,182,106,.18);
 }
 
-/* HEADER com seu GIF */
+/* HEADER com seu GIF — não muda o fluxo, só o fundo */
 #header{
   background: url("https://fullerhkz.github.io/bj-forest-theme/img/BJ.gif") no-repeat top center / cover, #000 !important;
 }
@@ -34,8 +62,10 @@
   border:1px solid var(--line-1) !important;
   border-radius:8px; box-shadow: var(--glow);
 }
+#userinfo a{ color:#e9eee9 !important; }
+#userinfo a:hover{ color:var(--gold-2) !important; }
 
-/* MENU */
+/* MENU moderno — apenas #menu/#menudrop */
 #menu{
   border-radius:14px !important;
   border:1px solid var(--line-1) !important;
@@ -87,7 +117,7 @@
   background: linear-gradient(180deg, rgba(37,80,80,.56), rgba(18,36,36,.48));
 }
 
-/* Alert pill */
+/* Alert pill (opcional) */
 .alertbar{
   text-align:center; color:#e6e6e6 !important; font-weight:700;
   max-width:600px; margin:8px auto; padding:10px;
@@ -97,3 +127,9 @@
 }
 .alertbar a{ color:var(--gold-2) !important; text-decoration:underline !important; }
 .alertbar a:hover{ color:var(--gold-3) !important; text-decoration:none !important; }
+
+/* Responsivo do menu (não altera layout geral) */
+@media (max-width: 900px){
+  #menudrop ul{ flex-wrap:wrap; gap:10px; }
+  #menudrop ul > li > a{ height:36px; padding:0 16px; font-size:11px; }
+}
